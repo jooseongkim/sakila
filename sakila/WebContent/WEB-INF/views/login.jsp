@@ -17,19 +17,34 @@
 .wRight {
 	text-align-last: right;
 }
+.table {
+ background-color: #33ffcc;
+}
 </style>
 </head>
 <body>
-	<form class="container">
-		<div class="form-group wRight">
-			<input type="text" class="form-control" placeholder="ID">
-		</div>
-		<div class="form-group wRight">
-			<input type="password" class="form-control" placeholder="PW">
-		</div>
-		<div class="center">
-			<button type="button" class="btn btn-outline-secondary">로그인</button>
-		</div>
+	<form class="container ">
+		<table class="table center">
+			<tr>
+				<td class="form-group wRight"><input type="text"
+					class="form-control" placeholder="ID"></td>
+			</tr>
+			<tr>
+				<td class="form-group wRight"><input type="password"
+					class="form-control" placeholder="PW"></td>
+			</tr>
+			<tr class="center">
+				<td>
+					<button type="button" class="btn btn-outline-secondary">로그인</button>
+				</td>
+			</tr>
+			<tr>
+				<td>오늘 접속자 수 : ${todayStats.count} 명</td>
+			</tr>
+			<tr>
+				<td>총 접속자 수 : ${totalCnt}명</td>
+			</tr>
+		</table>
 	</form>
 </body>
 </html>
