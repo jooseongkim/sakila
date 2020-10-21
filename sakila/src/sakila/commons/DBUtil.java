@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBUtil {
-	public Connection getConnection() throws Exception { //예외처리 입력
+	public static Connection getConnection() throws Exception { //예외처리 입력
 		
 		// db연결을 위한 변수를 적어서 다른 곳에서 추가로 적을 필요없이 실행시킬 수 있도록 함
 

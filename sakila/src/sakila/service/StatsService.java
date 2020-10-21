@@ -13,7 +13,6 @@ import sakila.vo.Stats;
 
 public class StatsService {
 	private StatsDao statsDao;
-	DBUtil dbutil = new DBUtil(); // db연결 메서드
 
 	private Stats getToday() {
 		// 오늘 날짜를 구함
@@ -33,7 +32,7 @@ public class StatsService {
 		Connection conn = null;
 
 		try {
-			conn = dbutil.getConnection();
+			conn = DBUtil.getConnection();
 			System.out.println(conn + "<-연결 확인");
 			conn.setAutoCommit(false);
 
@@ -69,7 +68,7 @@ public class StatsService {
 		Stats stats = new Stats();
 
 		try {
-			conn = dbutil.getConnection();
+			conn = DBUtil.getConnection();
 			System.out.println(conn + "<- 연결확인");
 			//db와 연결이 되었는지 확인
 			
