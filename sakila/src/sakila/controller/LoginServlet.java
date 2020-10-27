@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 	private StatsService statsService;
 	private StaffService staffService;
 
-	// ·Î±×ÀÎ ÆûÀ¸·Î ÀÌµ¿
+	// ë¡œê·¸ì¸ í¼ìœ¼ë¡œ ì´ë™
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/auth/IndexServlet");
 			return;
 		}
-		// ·Î±×ÀÎ µÇ¾îÀÖÀ¸¸é indexServletÀ¸·Î ³Ñ¾î°¡°í ¾ÈµÇ¾îÀÖÀ¸¸é ·Î±×ÀÎ ÆäÀÌÁö·Î
+		// ë¡œê·¸ì¸ ë˜ì–´ìˆìœ¼ë©´ indexServletìœ¼ë¡œ ë„˜ì–´ê°€ê³  ì•ˆë˜ì–´ìˆìœ¼ë©´ ë¡œê·¸ì¸ í˜ì´ì§€ë¡œ
 		statsService = new StatsService();
 		Map<String, Object> map = statsService.getStats();
 		Stats todayStats = (Stats) map.get("todayStats");
@@ -43,29 +43,29 @@ public class LoginServlet extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 	}
 
-	// ·Î±×ÀÎ ¾×¼ÇÀ¸·Î ÀÌµ¿(¿¹Á¤)
+	// ë¡œê·¸ì¸ ì•¡ì…˜ìœ¼ë¡œ ì´ë™(ì˜ˆì •)
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		staffService = new StaffService();
-		Staff staff = new Staff(); // ¸®Äù½ºÆ® »ç¿ë
+		Staff staff = new Staff(); // ë¦¬í€˜ìŠ¤íŠ¸ ì‚¬ìš©
 
-		staff.setStaffId(Integer.parseInt(request.getParameter("staffId")));
+		staff.setEmail(request.getParameter("staffEmail"));
 		staff.setPassword(request.getParameter("staffPw"));
-		System.out.println(staff.getStaffId() + "<--¾ÆÀÌµğ");
-		System.out.println(staff.getPassword() + "<--ºñ¹Ğ¹øÈ£");
+		System.out.println(staff.getEmail() + "<--ì´ë©”ì¼");
+		System.out.println(staff.getPassword() + "<--ë¹„ë°€ë²ˆí˜¸");
 
 		Staff returnStaff = staffService.getStaffByKey(staff);
-		System.out.println(returnStaff + "<-reurnStaff"); // È®ÀÎ
+		System.out.println(returnStaff + "<-reurnStaff"); // í™•ì¸
 
-		System.out.println(returnStaff.getStaffId() + "<- getstaffId °ª È®ÀÎ");
-		System.out.println(returnStaff.getUserName() + "<- getusrName °ª È®ÀÎ");
-
+		//System.out.println(returnStaff.getStaffId() + "<- getEmail");
+		//System.out.println(returnStaff.getUserName() + "<- getuserName ê°’ í™•ì¸");
+		//ì´ê±° ë‘ê°œ
 		HttpSession session = request.getSession();
 
 		if (returnStaff == null) {
 			response.sendRedirect(request.getContextPath() + "/LoginServlet");
 		} else {
-			session.setAttribute("loginStaff", returnStaff.getStaffId());
+			session.setAttribute("loginStaff", returnStaff.getEmail());
 			response.sendRedirect(request.getContextPath() + "/auth/IndexServlet");
 		}
 	}

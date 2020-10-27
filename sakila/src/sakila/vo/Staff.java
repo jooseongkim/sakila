@@ -1,10 +1,10 @@
 package sakila.vo;
 
 public class Staff {
-	// ½ºÅÂÇÁ´Â 11°³ÀÇ ÇÊµå(=¼Ó¼º, ¸â¹öº¯¼ö)°¡ ÇÊ¿äÇÕ´Ï´Ù
-	// toString ¸Ş¼­µå ¿À¹ö¶óÀÌµù ÇÊ¿äÇÕ´Ï´Ù
+	// ìŠ¤íƒœí”„ëŠ” 11ê°œì˜ í•„ë“œ(=ì†ì„±, ë©¤ë²„ë³€ìˆ˜)ê°€ í•„ìš”í•©ë‹ˆë‹¤
+	// toString ë©”ì„œë“œ ì˜¤ë²„ë¼ì´ë”© í•„ìš”í•©ë‹ˆë‹¤
 
-	//private·Î ¸¸µé¾î ÁØ ÈÄ getter / setter »ı¼º
+	// privateë¡œ ë§Œë“¤ì–´ ì¤€ í›„ getter / setter ìƒì„±
 	private int staffId;
 
 	private String firstName;
@@ -121,7 +121,7 @@ public class Staff {
 				+ addressId + ", picture=" + picture + ", email=" + email + ", storeId=" + storeId + ", active="
 				+ active + ", userName=" + userName + ", password=" + password + ", lastUpdate=" + lastUpdate + "]";
 	}
-	
-	//toStirng Ãß°¡
-	
+
+	// toStirng ì¶”ê°€
+
 }

@@ -15,9 +15,9 @@ public class StatsService {
 	private StatsDao statsDao;
 
 	private Stats getToday() {
-		// ¿À´Ã ³¯Â¥¸¦ ±¸ÇÔ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		Calendar today = Calendar.getInstance();
-		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd"); // ¿¬µµ - ¿ù - ÀÏ
+		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd"); // ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ - ï¿½ï¿½
 		String day = formater.format(today.getTime());
 		Stats stats = new Stats();
 		stats.setDay(day);
@@ -25,7 +25,7 @@ public class StatsService {
 	}
 
 	public Map<String, Object> getStats() {
-		// ¿À´Ã ¹æ¹®ÀÚ ¼ö¸¦ Á¶È¸
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½æ¹®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 		Map<String, Object> map = null;
 		statsDao = new StatsDao();
 		Stats stats = new Stats();
@@ -33,7 +33,7 @@ public class StatsService {
 
 		try {
 			conn = DBUtil.getConnection();
-			System.out.println(conn + "<-¿¬°á È®ÀÎ");
+			System.out.println(conn + "<-ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½");
 			conn.setAutoCommit(false);
 
 			stats = this.getToday();
@@ -46,7 +46,7 @@ public class StatsService {
 			map.put("todayStats", todayStats);
 			map.put("totalCnt", totalCnt);
 		} catch (Exception e) {
-			try { // ·Ñ¹é »ý¼º
+			try { // ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
@@ -62,15 +62,15 @@ public class StatsService {
 		return map;
 	}
 
-	public void countStats() { //Á¢¼ÓÀÚ ¼ö °è»ê
+	public void countStats() { //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 		statsDao = new StatsDao();
 		Connection conn = null;
 		Stats stats = new Stats();
 
 		try {
 			conn = DBUtil.getConnection();
-			System.out.println(conn + "<- ¿¬°áÈ®ÀÎ");
-			//db¿Í ¿¬°áÀÌ µÇ¾ú´ÂÁö È®ÀÎ
+			System.out.println(conn + "<- ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½");
+			//dbï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 			
 			conn.setAutoCommit(false);
 

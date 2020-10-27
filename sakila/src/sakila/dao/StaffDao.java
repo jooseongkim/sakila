@@ -6,17 +6,18 @@ import sakila.query.StaffQuery;
 import sakila.vo.Staff;
 
 public class StaffDao {
-	public Staff selectStaffByKey(Staff staff, Connection conn) throws Exception { //¿¹¿ÜÃ³¸®
-		//¾ÆÀÌµğ¶û ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØ¼­ ·Î±×ÀÎ
+	public Staff selectStaffByKey(Staff staff, Connection conn) throws Exception { //ì˜ˆì™¸ì²˜ë¦¬
+		//ì•„ì´ë””ë‘ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì„œ ë¡œê·¸ì¸
 		
 		Staff returnStaff = null;
 		
 		PreparedStatement stmt = conn.prepareStatement(StaffQuery.SELECT_STAFF_BY_KEY);
-		//staffÄõ¸®¿¡¼­ select staff by key¸¦ °¡Á®¿È
+		System.out.println(stmt +" <-stmt ì‘ë™ í™•ì¸");
+		//staffì¿¼ë¦¬ì—ì„œ select staff by keyë¥¼ ê°€ì ¸ì˜´
 		
-		stmt.setInt(1, staff.getStaffId());
+		stmt.setString(1, staff.getEmail());
 		stmt.setString(2, staff.getPassword());
-		System.out.println(stmt +" <-stmt ÀÛµ¿ È®ÀÎ id,password");
+		System.out.println(stmt +" <-stmt ì‘ë™ í™•ì¸ email,password");
 		
 		ResultSet rs = stmt.executeQuery();
 		if(rs.next()) {
@@ -24,7 +25,8 @@ public class StaffDao {
 			returnStaff.setStaffId(rs.getInt("staff_id"));
 			returnStaff.setUserName(rs.getString("username"));
 		}
-		System.out.println(returnStaff + "<- returnStaff ½ÇÇà È®ÀÎ");
+		System.out.println(returnStaff + "<- returnStaff ì‹¤í–‰ í™•ì¸");
+
 		
 		
 		return returnStaff;

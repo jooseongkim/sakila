@@ -7,7 +7,7 @@ import sakila.dao.StaffDao;
 import sakila.vo.Staff;
 
 public class StaffService {
-	private StaffDao staffDao; // staffDao¸¦ °¡Á®¿È
+	private StaffDao staffDao; // staffDaoë¥¼ ê°€ì ¸ì˜´
 
 	public Staff getStaffByKey(Staff staff) {
 		Staff returnStaff = null;
@@ -16,12 +16,12 @@ public class StaffService {
 
 		try {
 			conn = DBUtil.getConnection();
-			System.out.println(conn + "connÀÇ ¿¬°á È®ÀÎ"); // µ¥ÀÌÅÍº£ÀÌ½º¿Í ¿¬°áµÇ¾ú´ÂÁö È®ÀÎ
+			System.out.println(conn + "connì˜ ì—°ê²° í™•ì¸"); // ë°ì´í„°ë² ì´ìŠ¤ì™€ ì—°ê²°ë˜ì—ˆëŠ”ì§€ í™•ì¸
 
-			conn.setAutoCommit(false); // ¿ÀÅä Ä¿¹ÔÀº false·Î ¼³Á¤
+			conn.setAutoCommit(false); // ì˜¤í†  ì»¤ë°‹ì€ falseë¡œ ì„¤ì •
 			returnStaff = staffDao.selectStaffByKey(staff, conn);
-			System.out.println(returnStaff + "<--returnStaffÈ®ÀÎ "); //È®ÀÎ
-			
+			System.out.println(returnStaff + "<--returnStaffí™•ì¸ "); //í™•ì¸
+
 			conn.commit();
 		} catch (Exception e) {
 			try {

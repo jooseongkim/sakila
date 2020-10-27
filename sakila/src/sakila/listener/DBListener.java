@@ -19,12 +19,12 @@ public class DBListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent arg0)  { 
     	
     	
-        System.out.println("DBListener.contextInitialized() ½ÇÇà È®ÀÎ");
+        System.out.println("DBListener.contextInitialized() ì‹¤í–‰");
         try {
 			Class.forName("org.mariadb.jdbc.Driver");
-			System.out.println("mariaDB µå¶óÀÌºê ·Îµù ¼º°ø");//drive°¡ ·ÎµùµÇ¾ú´ÂÁö È®ÀÎ
+			System.out.println("mariaDB ë“œë¼ì´ë¸Œ ë¡œë”©");//driveë¡œë”© í™•ì¸
 		} catch (ClassNotFoundException e) {
-			System.out.println("Class.forName() ½ÇÇà ½ÇÆĞ");
+			System.out.println("Class.forName() ì‹¤í–‰ ì‹¤íŒ¨");
 			e.printStackTrace();
 		}
     }
