@@ -48,17 +48,18 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		staffService = new StaffService();
 		Staff staff = new Staff(); // 리퀘스트 사용
+		Staff returnStaff = new Staff();
 
 		staff.setEmail(request.getParameter("staffEmail"));
 		staff.setPassword(request.getParameter("staffPw"));
 		System.out.println(staff.getEmail() + "<--이메일");
 		System.out.println(staff.getPassword() + "<--비밀번호");
 
-		Staff returnStaff = staffService.getStaffByKey(staff);
-		System.out.println(returnStaff + "<-reurnStaff"); // 확인
+		returnStaff = staffService.getStaffByKey(staff);
+		System.out.println(returnStaff + "<-returnStaff"); // 확인
 
-		//System.out.println(returnStaff.getStaffId() + "<- getEmail");
-		//System.out.println(returnStaff.getUserName() + "<- getuserName 값 확인");
+		System.out.println(returnStaff.getEmail() + "<- getEmail");
+		System.out.println(returnStaff.getUserName() + "<- getuserName 값 확인");
 		//이거 두개
 		HttpSession session = request.getSession();
 

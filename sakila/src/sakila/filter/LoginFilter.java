@@ -29,7 +29,7 @@ public class LoginFilter implements Filter {
 		if (session.getAttribute("loginStaff") == null) {
 			System.out.println("로그인 후 접근!");
 			((HttpServletResponse) response)
-					.sendRedirect(request.getServletContext().getContextPath() + "/auth/IndexServlet");
+					.sendRedirect(request.getServletContext().getContextPath() + "/LoginServlet");
 			return;
 		}
 		chain.doFilter(request, response);

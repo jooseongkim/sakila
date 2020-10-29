@@ -27,8 +27,8 @@
 	//유효성 검사를 해주는 코드를 구현
 	$(document).ready(function() {
 		$("#btn").click(function() {
-			if ($("#staffEmail").val().length < 1) {
-				alert("아이디를 확인하세요");
+			if ($("#staffEmail").val().length < 8) {
+				alert("이메일을 확인하세요");
 				return;
 			} else if ($("#staffPw").val().length < 3) {
 				alert("비밀번호를 확인하세요");
@@ -44,7 +44,7 @@
 		<table class="table center">
 			<tr>
 				<td class="form-group wRight"><input type="text"
-					class="form-control" placeholder="ID" id="staffEmail" name="staffEmail"></td>
+					class="form-control" placeholder="Email" id="staffEmail" name="staffEmail"></td>
 			</tr>
 			<tr>
 				<td class="form-group wRight"><input type="password"
