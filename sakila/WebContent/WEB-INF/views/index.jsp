@@ -117,7 +117,17 @@
 .white {
 	color: white;
 	font-size: 60px;
-	text-align: center;
+	margin-right: auto;
+}
+
+.wLine {
+	border-color: white;
+	border: 1px;
+}
+
+.label1 {
+	font-size: 20px;
+	color: white;
 }
 </style>
 </head>
@@ -133,8 +143,15 @@
 	</div>
 	<div class="sidenav" id="sidemenu">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<i class="fas fa-user-astronaut white">관리자</i> <a href="#">홈으로</a> <a
-			href="#">비디오 목록</a> <a href="#">관리자 페이지</a> <a href="#">etc</a>
+		<i class="fas fa-user-astronaut white"></i><label class="label1"
+			style="text-align: right">상점 <br> 관리자
+		</label> <a href=${pageContext.request.contextPath}/auth/LogoutServlet
+			class="btn btn-outline-info wLine">로그아웃</a>
+		<hr style="border: 2px solid white;">
+		<a href="#" class="btn btn-outline-info wLine">홈으로</a> <a href="#"
+			class="btn btn-outline-info wLine">비디오 목록</a> <a href="#"
+			class="btn btn-outline-info wLine">관리자 페이지</a> <a href="#"
+			class="btn btn-outline-info wLine">etc</a>
 	</div>
 	<span style="font-size: 30px; cursor: pointer"
 		onclick="myFunction(this)"></span>
